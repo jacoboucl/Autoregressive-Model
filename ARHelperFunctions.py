@@ -36,3 +36,14 @@ def BuildDataset(series, num_lags=10):
 	X_test, Y_test = X[-N//2:], Y[-N//2:]
 	
 	return X_train, Y_train, X_test, Y_test
+	
+def ModelBuild(T=10):
+	'''
+	This function builds an autogressive model
+	'''
+	
+	i = Input(shape=(T,))
+	x = Dense(1)(i)
+	model = Model(i, x)
+	
+	return model
