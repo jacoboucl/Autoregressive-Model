@@ -33,3 +33,17 @@ series = CreateSeries(length=200, random_noise=0.1)
 # plot noisy series
 plt.plot(series)
 plt.show()
+
+X_train, Y_train, X_test, Y_test = BuildDataset(series, num_lags=10)
+
+model = ModelBuild(T=10)
+
+model.compile(loss="mse", optimizer=Adam(lr=0.1))
+
+training_logs = model.fit(X_train, Y_train, 
+                          epochs=30, validation_data=(X_test, Y_test),
+                          verbose=0)
+
+plt.plot(training_logs.history["loss"], label="loss")
+plt.plot(training_logs.history["val_loss"], label="val_loss")
+plt.legend()
