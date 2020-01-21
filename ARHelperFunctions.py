@@ -47,3 +47,40 @@ def ModelBuild(T=10):
 	model = Model(i, x)
 	
 	return model
+	
+def IncorrectForecast(Y_test, X_test, model):
+	'''
+	
+	'''
+	
+	validation_target = Y_test
+	validation_predictions = []
+	
+	i = 0
+	while len(validation_predictions) < len(validation_target):
+		p = model.predict(X_test[i].reshape(1, -1))[0, 0]
+		i += 1
+  
+		validation_predictions.append(p)
+	
+	return validation_predictions
+	
+def CorrectForecast(Y_test, X_train, model):
+	'''
+	
+	'''
+	
+	validation_target = Y_test
+	validation_predictions = []
+	
+	last_x = X_train[-1]
+
+	while len(validation_predictions) < len(validation_target):
+		p = model.predict(last_x.reshape(1, -1))[0, 0]
+  
+		validation_predictions.append(p)
+  
+		last_x = np.roll(last_x, -1)
+		last_x[-1] = p
+	
+	return validation_predictions
