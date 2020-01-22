@@ -4,6 +4,8 @@ Simple implementation of an auto regressive model using Tensorflow 2.0
 ## Base Series
 ![Noisy AR Series](/images/noisy_ar_series.png)
 
+## Model Architecture
+
 ## Training Logs
 ![Training Logs](/images/training_logs.png)
 
