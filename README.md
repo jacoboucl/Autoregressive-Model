@@ -10,7 +10,8 @@ Simple implementation of an auto regressive model using Tensorflow 2.0
 ![Training Logs](/images/training_logs.png)
 
 ## Incorrect Forecast
-The below figure represents the incorrect method for forecasting time series data, where the model only predicts one timestep into the future at a time.
+The below figure represents the incorrect method for forecasting time series data, where the model only predicts one timestep into the future at a time. 
+Before reverting back to using the known feature values for the next time steps.
 
 ![Incorrect Forecast](/images/incorrect_forecast.png)
 
