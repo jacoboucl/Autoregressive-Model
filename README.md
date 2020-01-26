@@ -2,6 +2,8 @@
 Simple implementation of an auto regressive model using Tensorflow 2.0
 
 ## Base Series
+A simple noisy sine wave was created as the base series on which we will attempt to build and fit an auto regressive model.
+
 ![Noisy AR Series](/images/noisy_ar_series.png)
 
 ## Model Architecture
