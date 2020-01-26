@@ -1,4 +1,4 @@
-# Autoregressive-Model
+# AutoregressiveModel
 Simple implementation of an auto regressive model using Tensorflow 2.0
 
 ## Base Series
