@@ -28,16 +28,16 @@ uploaded = files.upload()
 
 from ARHelperFunctions import *
 
-series = CreateSeries(length=180, random_noise=0.05)
+series = create_series(length=180, random_noise=0.05)
 
 # plot noisy series
 plt.plot(series)
 plt.title("Noisy Auto-Regressive Series")
 plt.show()
 
-X_train, Y_train, X_test, Y_test = BuildDataset(series, num_lags=10)
+X_train, Y_train, X_test, Y_test = build_dataset(series, num_lags=10)
 
-model = ModelBuild(T=10)
+model = model_build(T=10)
 
 model.compile(loss="mse", optimizer=Adam(lr=0.1))
 
@@ -53,7 +53,7 @@ plt.legend()
 
 validation_target = Y_test
 
-incorrect_validation_predictions = IncorrectForecast(Y_test, X_test, model)
+incorrect_validation_predictions = incorrect_forecast(Y_test, X_test, model)
 
 # plot results of incorrect forecasting method
 plt.plot(validation_target, label="Target")
@@ -61,7 +61,7 @@ plt.plot(incorrect_validation_predictions, label="Prediction")
 plt.title("Incorrect Forecast")
 plt.legend()
 
-correct_validation_predictions = CorrectForecast(Y_test, X_train, model)
+correct_validation_predictions = correct_forecast(Y_test, X_train, model)
 
 # plot results of correct forecasting method
 plt.plot(validation_target, label="Target")

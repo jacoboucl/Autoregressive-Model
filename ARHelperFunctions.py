@@ -4,7 +4,7 @@ from tensorflow.keras.layers import Input, Dense
 from tensorflow.keras.models import Model
 from tensorflow.keras.optimizers import SGD, Adam
 
-def CreateSeries(length=200, random_noise=0.1):
+def create_series(length=200, random_noise=0.1):
 	'''
 	This function creates a noisy sin wave to use as
 	a time series to predict against
@@ -14,7 +14,7 @@ def CreateSeries(length=200, random_noise=0.1):
 	
 	return series
 	
-def BuildDataset(series, num_lags=10):
+def build_dataset(series, num_lags=10):
 	'''
 	This function creates a machine learning style data set for solving an 
 	AR time series forecasting problem
@@ -37,7 +37,7 @@ def BuildDataset(series, num_lags=10):
 	
 	return X_train, Y_train, X_test, Y_test
 	
-def ModelBuild(T=10):
+def model_build(T=10):
 	'''
 	This function builds an autogressive model
 	'''
@@ -48,7 +48,7 @@ def ModelBuild(T=10):
 	
 	return model
 	
-def IncorrectForecast(Y_test, X_test, model):
+def incorrect_forecast(Y_test, X_test, model):
 	'''
 	
 	'''
@@ -65,7 +65,7 @@ def IncorrectForecast(Y_test, X_test, model):
 	
 	return validation_predictions
 	
-def CorrectForecast(Y_test, X_train, model):
+def correct_forecast(Y_test, X_train, model):
 	'''
 	
 	'''
